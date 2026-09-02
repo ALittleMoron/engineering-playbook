@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import argparse
+import difflib
+import sys
+from pathlib import Path
+
+from agentslib import (
+    ProfileError,
+    available_profiles,
+    load_profile,
+    output_path,
+    render_profile,
+)
+
+
+def parse_arguments() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Check generated AGENTS.md files without modifying them."
+    )
+    parser.add_argument(
+        "profiles",
+        nargs="*",
+        help="Profile names to check; defaults to every profile.",
+    )
+    return parser.parse_args()
+
+
+def print_diff(actual: str, expected: str, relative_path: Path) -> None:
+    difference = difflib.unified_diff(
+        actual.splitlines(keepends=True),
+        expected.splitlines(keepends=True),
+        fromfile=f"{relative_path} (actual)",
+        tofile=f"{relative_path} (expected)",
+    )
+    sys.stdout.writelines(difference)
+
+
+def main() -> int:
+    arguments = parse_arguments()
+    repository = Path(__file__).resolve().parents[1]
+    profiles = tuple(arguments.profiles) or available_profiles(repository)
+    if not profiles:
+        print("error: no profiles found in agents/profiles", file=sys.stderr)
+        return 2
+
+    has_drift = False
+    try:
+        for name in profiles:
+            profile = load_profile(repository, name)
+            expected = render_profile(repository, profile)
+            generated = output_path(repository, profile)
+            relative_path = generated.relative_to(repository)
+            if generated.is_symlink() or not generated.is_file():
+                print(f"missing: {relative_path}")
+                has_drift = True
+                continue
+
+            actual = generated.read_text(encoding="utf-8")
+            if actual == expected:
+                print(f"ok: {relative_path}")
+                continue
+
+            print(f"stale: {relative_path}")
+            print_diff(actual, expected, relative_path)
+            has_drift = True
+    except (OSError, UnicodeError, ProfileError) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 2
+
+    return 1 if has_drift else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

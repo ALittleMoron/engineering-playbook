@@ -1,0 +1,10 @@
+schema_version = 1
+name = "global"
+version = "0.1.0"
+description = "Persistent user-wide working agreements for Codex across repositories."
+use_cases = ["Install as the default ~/.codex/AGENTS.md guidance."]
+fragments = [
+  "core/authority-boundaries.md",
+  "core/todo-files.md",
+  "core/guidance-maintenance.md",
+]

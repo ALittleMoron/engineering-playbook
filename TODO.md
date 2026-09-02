@@ -17,15 +17,15 @@
 - [ ] Write `governance/versioning.md` covering versioning for the handbook, agent profiles, and generated files.
 - [ ] Write `governance/exceptions.md` and a finite exception template with scope, rationale, owner, and expiry condition.
 - [ ] Create an ADR for the separation between `handbook`, `agents/fragments`, `agents/profiles`, and `agents/dist`, including the source of truth and manual-editing boundaries.
-- [ ] Create an ADR for the profile format and deterministic assembly of final `AGENTS.md` files.
-- [ ] Add distinct `CHANGELOG.md` entries for accepted behavioral changes, imported guidance, and profile releases.
+- [x] Create an ADR for the profile format and deterministic assembly of final `AGENTS.md` files.
+- [x] Add distinct `CHANGELOG.md` entries for accepted behavioral changes, imported guidance, and profile releases.
 
 ## Agent guidance migration
 
-- [ ] Split the current `~/.codex/AGENTS.md` into minimal thematic fragments under `agents/fragments/core/` without expanding the original scope.
+- [x] Split the current `~/.codex/AGENTS.md` into minimal thematic fragments under `agents/fragments/core/` without expanding the original scope.
 - [ ] Create a dedicated authority-boundaries fragment covering read-only inspection, ordinary local changes, actions requiring approval, and implicit scope expansion.
-- [ ] Create a dedicated guidance-maintenance fragment covering candidate collection, narrowest-scope placement, explicit approval, and duplicate prevention.
-- [ ] Create a dedicated fragment covering finite TODO items and placement of durable guidance in `AGENTS.md` or the handbook.
+- [x] Create a dedicated guidance-maintenance fragment covering candidate collection, narrowest-scope placement, explicit approval, and duplicate prevention.
+- [x] Create a dedicated fragment covering finite TODO items and placement of durable guidance in `AGENTS.md` or the handbook.
 - [ ] Classify the root `my-site/AGENTS.md` into `core`, `processes`, `languages`, `stacks`, and `project-only`; do not move `project-only` rules into the global profile.
 - [ ] Move reusable Python guidance from `my-site/backend/AGENTS.md` and `my-site/backend/src/core/AGENTS.md` into Python/backend fragments with source and applicability metadata.
 - [ ] Move SQLAlchemy, PostgreSQL, and Alembic guidance from `my-site/backend/src/infra/postgresql/AGENTS.md` into dedicated stack fragments.
@@ -61,8 +61,8 @@
 
 ## Profiles and templates
 
-- [ ] Define and document the profile manifest schema: name, description, fragment list, assembly order, and supported use cases.
-- [ ] Create a minimal `global` profile containing only genuinely user-wide guidance.
+- [x] Define and document the profile manifest schema: name, description, fragment list, assembly order, and supported use cases.
+- [x] Create a minimal `global` profile containing only genuinely user-wide guidance.
 - [ ] Create opt-in `python-backend`, `angular-frontend`, `full-stack-web`, `infrastructure`, and `knowledge-base` profiles.
 - [ ] Create `templates/AGENTS.repo.md` for project commands, structure, checks, and local constraints.
 - [ ] Create `templates/AGENTS.service.md` for service- or bounded-context-specific guidance.
@@ -72,15 +72,15 @@
 
 ## Scripts and automation
 
-- [ ] Create an ADR selecting the tooling runtime and dependency policy before implementing the remaining scripts.
+- [x] Create an ADR selecting the tooling runtime and dependency policy before implementing the remaining scripts.
 - [ ] Implement `scripts/inventory-agents`, accepting a set of roots and producing a stable machine-readable inventory without reading secret files.
-- [ ] Implement `scripts/build-agents` to assemble profiles from fragments into `agents/dist/` deterministically and include the source version.
-- [ ] Implement `scripts/check-generated` to fail when `agents/dist/` differs from a fresh build.
+- [x] Implement `scripts/build-agents` to assemble profiles from fragments into `agents/dist/` deterministically and include the source version.
+- [x] Implement `scripts/check-generated` to fail when `agents/dist/` differs from a fresh build.
 - [ ] Implement `scripts/check-structure` to validate required directories, README files in organizational directories, and the absence of empty placeholder files.
 - [ ] Implement `scripts/check-links` to validate local Markdown links and report unavailable external sources separately.
 - [ ] Implement `scripts/check-agents` to detect empty instructions, unknown fragments, profile cycles, repeated inclusions, and configured size-limit violations.
 - [ ] Implement `scripts/diff-installed` to compare an assembled profile with a target `AGENTS.md` without modifying files.
-- [ ] Implement a safe `scripts/install-global` with dry-run by default, explicit `--apply`, a pre-write diff, and a backup of the replaced `~/.codex/AGENTS.md`.
+- [x] Implement a safe `scripts/install-global` with dry-run by default, explicit `--apply`, a pre-write diff, and a backup of the replaced `~/.codex/AGENTS.md`.
 - [ ] Implement a safe `scripts/apply-profile` for target repositories with dry-run by default, an explicit destination path, and refusal to overwrite unknown manual changes.
 - [ ] Implement `scripts/run-evals` for deterministic structural evals and optional model-based cases enabled only by an explicit flag.
 - [ ] Implement `scripts/check` as the single entry point for structure, links, generated output, agent validation, and deterministic evals.
@@ -105,7 +105,7 @@
 - [ ] Write a playbook for migrating an existing `AGENTS.md`: inventory, classification, deduplication, profile selection, dry-run, review, and rollout.
 - [ ] Write a guide for creating new guidance and choosing among a principle, standard, playbook, reference, template, and agent fragment.
 - [ ] Write a guide for installing the global profile and applying a project profile, including dry-run and rollback commands.
-- [ ] Assemble the first `agents/dist/global/AGENTS.md` and compare it with the current `~/.codex/AGENTS.md` without writing to it.
+- [x] Assemble the first `agents/dist/global/AGENTS.md` and compare it with the current `~/.codex/AGENTS.md` without writing to it.
 - [ ] Show the first global-profile diff to the user and obtain separate explicit approval before installation.
 - [ ] Prepare a pilot diff for `my-site` while preserving its project-specific and nested guidance; do not modify the source project without separate approval.
 - [ ] Prepare a second pilot diff for a different repository type: `knowledge-database` or `design-system`.

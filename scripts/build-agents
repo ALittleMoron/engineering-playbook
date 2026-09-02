@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import argparse
+import sys
+from pathlib import Path
+
+from agentslib import (
+    ProfileError,
+    available_profiles,
+    load_profile,
+    output_path,
+    render_profile,
+    write_if_changed,
+)
+
+
+def parse_arguments() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Build distributable AGENTS.md files from profile manifests."
+    )
+    parser.add_argument(
+        "profiles",
+        nargs="*",
+        help="Profile names to build; defaults to every profile.",
+    )
+    return parser.parse_args()
+
+
+def main() -> int:
+    arguments = parse_arguments()
+    repository = Path(__file__).resolve().parents[1]
+    profiles = tuple(arguments.profiles) or available_profiles(repository)
+    if not profiles:
+        print("error: no profiles found in agents/profiles", file=sys.stderr)
+        return 2
+
+    try:
+        for name in profiles:
+            profile = load_profile(repository, name)
+            destination = output_path(repository, profile)
+            changed = write_if_changed(destination, render_profile(repository, profile))
+            status = "built" if changed else "unchanged"
+            print(f"{status}: {destination.relative_to(repository)}")
+    except (OSError, UnicodeError, ProfileError) as error:
+        print(f"error: {error}", file=sys.stderr)
+        return 2
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

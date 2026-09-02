@@ -21,3 +21,16 @@ A new practice starts as an observation or local decision. Once its value is sup
 The finite backlog for populating and automating the repository lives in [`TODO.md`](TODO.md).
 
 The root [`AGENTS.md`](AGENTS.md) defines how to maintain this repository. It is not a global template for other projects.
+
+## Build and install global guidance
+
+Build the global profile, preview its installation, and apply it explicitly:
+
+```sh
+scripts/build-agents global
+scripts/check-generated
+scripts/install-global
+scripts/install-global --apply
+```
+
+The installer previews the diff by default. Applying a change backs up the existing `~/.codex/AGENTS.md` before replacing it.
