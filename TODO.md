@@ -23,7 +23,7 @@
 ## Agent guidance migration
 
 - [x] Split the current `~/.codex/AGENTS.md` into minimal thematic fragments under `agents/fragments/core/` without expanding the original scope.
-- [ ] Create a dedicated authority-boundaries fragment covering read-only inspection, ordinary local changes, actions requiring approval, and implicit scope expansion.
+- [x] Create a dedicated authority-boundaries fragment covering read-only inspection, ordinary local changes, actions requiring approval, and implicit scope expansion.
 - [x] Create a dedicated guidance-maintenance fragment covering candidate collection, narrowest-scope placement, explicit approval, and duplicate prevention.
 - [x] Create a dedicated fragment covering finite TODO items and placement of durable guidance in `AGENTS.md` or the handbook.
 - [ ] Classify the root `my-site/AGENTS.md` into `core`, `processes`, `languages`, `stacks`, and `project-only`; do not move `project-only` rules into the global profile.
@@ -106,7 +106,7 @@
 - [ ] Write a guide for creating new guidance and choosing among a principle, standard, playbook, reference, template, and agent fragment.
 - [ ] Write a guide for installing the global profile and applying a project profile, including dry-run and rollback commands.
 - [x] Assemble the first `agents/dist/global/AGENTS.md` and compare it with the current `~/.codex/AGENTS.md` without writing to it.
-- [ ] Show the first global-profile diff to the user and obtain separate explicit approval before installation.
+- [x] Show the first global-profile diff to the user and obtain separate explicit approval before installation.
 - [ ] Prepare a pilot diff for `my-site` while preserving its project-specific and nested guidance; do not modify the source project without separate approval.
 - [ ] Prepare a second pilot diff for a different repository type: `knowledge-database` or `design-system`.
 - [ ] Verify a fresh-clone workflow covering build, `make check`, installation dry-run, and profile application to a temporary fixture repository.

@@ -8,4 +8,4 @@ Candidates for universal instructions: autonomy boundaries, change safety, commu
 - `guidance-maintenance.md` defines how reusable agent guidance is proposed, scoped, and approved.
 - `todo-files.md` separates finite tasks from durable guidance.
 
-These fragments were imported from `~/.codex/AGENTS.md` on 2026-09-02. Their wording remains unchanged from the source, apart from thematic headings.
+Initially imported from `~/.codex/AGENTS.md` on 2026-09-02. These fragments now own the global guidance; update them here, regenerate the profile, and install it with the repository scripts. See `CHANGELOG.md` for subsequent behavioral changes.

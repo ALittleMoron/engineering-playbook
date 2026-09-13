@@ -1,5 +1,12 @@
 # Maintaining Agent Guidance
 
-- Treat stable, reusable user corrections, preferences, conventions, and lessons revealed by the work as potential `AGENTS.md` improvements. Propose only guidance supported by current evidence and likely to remain useful beyond the current task; do not turn one-off details, speculation, or duplicates into rules.
-- Place each proposal in the narrowest `AGENTS.md` whose full scope it governs. Keep `~/.codex/AGENTS.md` limited to user-wide guidance whose validity does not depend on any particular repository or group of repositories, codebase, language, framework, toolchain, or task domain. Recurrence across several projects alone does not make a rule global.
-- For each candidate, provide concise proposed wording, the target file, and a brief rationale. Prefer revising, relocating, or removing an existing rule over duplicating it. Do not edit an `AGENTS.md` file until the user explicitly approves that change. If there is no useful candidate, omit the report unless a more specific instruction requires an explicit empty result.
+- Propose guidance only for evidenced, durable preferences or constraints. Prefer revising or
+  removing an existing rule to adding duplicates; omit empty candidate reports.
+- Put each rule in the narrowest scope it governs. The global profile contains only user-wide
+  guidance, not repository, language, framework, toolchain, or task-domain rules.
+- Give each proposal its wording, target, and reason. Obtain explicit approval before changing
+  durable guidance; an explicit request to implement an agreed audit or proposal is approval for
+  that scope and does not require another confirmation for each file.
+- Reusable global guidance is maintained in the engineering-playbook repository under
+  `agents/fragments/` and `agents/profiles/`. Regenerate and install the profile through that
+  repository's scripts rather than editing the generated global AGENTS.md independently.
