@@ -4,6 +4,9 @@ This file records notable changes to engineering guidance, agent profiles, templ
 
 ## Unreleased
 
+- Added a reusable task-estimation process fragment covering the 8–16 hour range, decomposition,
+  testing, manual work, and estimates that do not assume AI assistance.
+
 - Updated the global profile to `0.2.0`: authorized reversible local work no longer requires
   repeated workflow approval, while protected Git, publication, production, cost, and data
   boundaries remain explicit.
