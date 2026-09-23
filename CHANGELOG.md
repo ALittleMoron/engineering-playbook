@@ -4,6 +4,12 @@ This file records notable changes to engineering guidance, agent profiles, templ
 
 ## Unreleased
 
+- Required explicit user opt-in for Git worktrees and a stop on uncommitted project changes unless
+  the user has already authorized working with them.
+- Added a global testing fragment that favors risk-based behavioral and defect-regression tests,
+  avoids strict TDD by default, and steers one-time or static invariants away from brittle tests.
+- Updated the global profile to `0.3.0` to include the testing guidance.
+
 - Added a reusable task-estimation process fragment covering the 8–16 hour range, decomposition,
   testing, manual work, and estimates that do not assume AI assistance.
 

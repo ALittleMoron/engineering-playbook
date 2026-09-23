@@ -7,3 +7,5 @@ Concise instructions for repeatable agent workflows such as planning, verificati
 - `readme-files.md` defines the scope and content expectations for repository README files and
   their translations.
 - `task-estimation.md` defines the required range and basis for engineering task estimates.
+- `testing.md` defines when automated tests are worth keeping and distinguishes behavioral tests,
+  defect regressions, one-time verification, and static enforcement.

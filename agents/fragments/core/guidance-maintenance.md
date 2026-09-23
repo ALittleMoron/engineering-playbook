@@ -7,3 +7,6 @@
 - Give each proposal its wording, target, and reason. Obtain explicit approval before changing
   durable guidance; an explicit request to implement an agreed audit or proposal is approval for
   that scope and does not require another confirmation for each file.
+- Reusable global guidance is maintained in the engineering-playbook repository under
+  `agents/fragments/` and `agents/profiles/`. Regenerate and install the profile through that
+  repository's scripts rather than editing the generated global AGENTS.md independently.
