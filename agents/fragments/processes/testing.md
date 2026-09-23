@@ -4,6 +4,10 @@
   Do not default to strict TDD or add an automated test for every code change.
 - Prefer tests of externally observable behavior. Add a focused regression test for a fixed defect
   when reproducing the failure protects against a credible recurrence.
+- Choose the test boundary that can prove the behavior: isolate self-contained logic, but use real
+  database, middleware, or integration boundaries when the contract depends on queries,
+  transactions, concurrency, or request processing. Avoid repeating isolated cases through the
+  full stack without a distinct regression risk.
 - When intentionally removing a feature that is no longer required, remove or update its obsolete
   tests and verify the change directly. Do not add a permanent test merely to prove that the old
   behavior stays absent unless that absence is itself a durable requirement with meaningful

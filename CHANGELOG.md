@@ -4,6 +4,11 @@ This file records notable changes to engineering guidance, agent profiles, templ
 
 ## Unreleased
 
+- Updated the global profile to `0.4.0` with conversational task plans, behavior-driven test
+  boundaries, project-native verification with explicit user-only bypass, truthful check reporting,
+  and command trust review.
+- Added general standards for service contract changes, sensitive data, and user interface
+  feedback, plus playbooks for database migration tests and temporary release flags.
 - Required explicit user opt-in for Git worktrees and a stop on uncommitted project changes unless
   the user has already authorized working with them.
 - Added a global testing fragment that favors risk-based behavioral and defect-regression tests,

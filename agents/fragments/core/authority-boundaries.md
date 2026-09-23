@@ -9,3 +9,5 @@
   otherwise protected Git operations, publication, or production changes.
 - Continue through implementation and task-relevant verification until the requested outcome is
   complete or a concrete blocker requires user action. Do not expand into unrelated cleanup.
+- Keep task plans in the conversation unless the user requests a file or a durable handoff needs one.
+  Do not create repository workflow artifacts solely to satisfy a skill.
